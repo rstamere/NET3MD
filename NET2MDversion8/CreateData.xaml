@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NET2MDversion8.CreateData"
+             Title="CreateData">
+    <ScrollView>
+        <VerticalStackLayout 
+            Padding="30,0"
+            Spacing="25">
+            <!--liela dala no sii koda tika izstradata ar AI rika palidzibu-->
+            <Label Text="Add New Student" FontSize="Medium" />
+            <Entry x:Name="StudentName" Placeholder="Student Name" />
+            <Entry x:Name="StudentSurname" Placeholder="Student Surname" />
+            <Picker x:Name="StudentGender" Title="Gender">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Man</x:String>
+                        <x:String>Woman</x:String>
+                        <x:String>Other</x:String>
+                        <x:String>Unknown</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Entry x:Name="StudentIDNumber" Placeholder="Student ID" />
+            <Button Text="Add Student" Clicked="OnAddStudentClicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace NET1MD
+namespace NET1MDversion2
 {
     public class schoolManager : IDataManager
     {

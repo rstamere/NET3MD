@@ -19,9 +19,10 @@ namespace NET1MDversion2
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["SchoolContext"].ConnectionString);
+            string cs = ConfigurationManager.ConnectionStrings["SchoolCon"].ConnectionString;
+            optionsBuilder.UseSqlServer(cs);
         }
     }
-    {
-    }
+    
+    
 }

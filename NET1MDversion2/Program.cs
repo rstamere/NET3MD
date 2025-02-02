@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.IO;
-using static NET1MD.Person;
+using static NET1MDversion2.Person;
 
-namespace NET1MD
+namespace NET1MDversion2
 {
     internal class Program
     {

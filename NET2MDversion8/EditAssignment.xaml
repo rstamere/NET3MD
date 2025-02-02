@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NET2MDversion8.EditAssignment"
+             Title="EditAssignment" Appearing="ContentPage_Appearing">
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+            <Label Text="Edit Assignment" FontSize="Medium"/>
+            <Label Text="Checked - Edit mode, Unchecked - Delete mode" />
+            <!--no pasniedzejas lekciju koda faila-->
+            <CheckBox x:Name="IsEditingChx" />
+            <ListView x:Name="AssignmentList" ItemTapped="AssignmentList_ItemTapped" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

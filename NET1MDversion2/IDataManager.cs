@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NET1MD
+namespace NET1MDversion2
 {
     //8 UZD - viss uzdevums tika izstrādāts izmantojot AI rīka palīdzību
     public interface IDataManager

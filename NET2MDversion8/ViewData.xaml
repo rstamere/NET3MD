@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NET2MDversion8.ViewData"
+             Title="ViewData" NavigatedTo="ContentPage_NavigatedTo">
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+            <Label
+                Text="Student data"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                FontSize="Medium" />
+            <Button
+                x:Name="PrintBtn"
+                Text="Print Test Data"
+                Clicked="OnPrintClicked"
+                HorizontalOptions="Fill" />
+            <Button
+                x:Name="CreateBtn"
+                Text="Create Test Data"
+                Clicked="OnCreateClicked"
+                HorizontalOptions="Fill" />
+            <Button
+                x:Name="LoadBtn"
+                Text="Load Data"
+                Clicked="OnLoadClicked"
+                HorizontalOptions="Fill" />
+            <Button
+                x:Name="SaveBtn"
+                Text="Save Data"
+                Clicked="OnSaveClicked"
+                HorizontalOptions="Fill" />
+            <Button
+                x:Name="RestartBtn"
+                Text="Restart Data"
+                Clicked="OnRestartClicked"
+                HorizontalOptions="Fill" />
+            <Editor
+                x:Name="dataDisplayLabel"
+                IsReadOnly="True"
+                HeightRequest="400"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

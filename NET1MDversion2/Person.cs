@@ -6,13 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.IO;
-using static NET1MD.Person;
+using static NET1MDversion2.Person;
+using System.ComponentModel.DataAnnotations;
 
-namespace NET1MD
+namespace NET1MDversion2
 {
     //1 UZD
     public abstract class Person //izmantoju https://www.w3schools.com/cs/cs_properties.php
     {
+        [Key]
+        public int ID { get; set; }
         public enum GenderType //izmantoju https://stackoverflow.com/questions/37585134/how-to-name-a-gender-property-of-type-gender-in-c-sharp-according-to-naming-conv
         {
             [XmlEnum("Man")]

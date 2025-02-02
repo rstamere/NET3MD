@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NET1MD
+namespace NET1MDversion2
 {
     //6 UZD
     public class Submission
     {
+        [Key]
+        public int ID { get; set; }
         public Submission(Assignment assignment, Student student, DateTime submissionTime, int score) //konstruktors, jo bija error (VS piedāvājo šo, kā labojumu)
         {
             Assignment = assignment;

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace NET1MD
+namespace NET1MDversion2
 {
     //2 UZD
     public class Teacher : Person  //subclass

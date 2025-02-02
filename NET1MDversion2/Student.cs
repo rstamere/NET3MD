@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NET1MD
+namespace NET1MDversion2
 {
     //3 UZD 
     public class Student : Person // izmantoju https://www.w3schools.com/cs/cs_constructors.php

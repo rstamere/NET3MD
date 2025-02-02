@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NET2MDversion8.CreateSubmission"
+             Title="CreateSubmission">
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0" Spacing="25">
+            <Label 
+                Text="Add New Submission"
+                FontSize="Medium" />
+            <Picker x:Name="SubmissionAssignment" Title="Select Assignment"
+                    ItemsSource="{Binding Assignments}"
+                    ItemDisplayBinding="{Binding Description}"/>
+            <Picker x:Name="SubmissionStudent" Title="Select Student"
+                    ItemsSource="{Binding Students}"
+                    ItemDisplayBinding="{Binding FullName}"/>
+            <DatePicker x:Name="SubmissionTime" />
+            <Entry x:Name="SubmissionScore" Placeholder="Score" Keyboard="Numeric" />
+            <Button x:Name="CreateSubmissionBtn" Text="Add Submission" Clicked="OnAddSubmissionClicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

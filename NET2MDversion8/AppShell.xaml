@@ -4,12 +4,36 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:NET2MDversion8"
-    Shell.FlyoutBehavior="Disabled"
+    Shell.FlyoutBehavior="Flyout"
     Title="NET2MDversion8">
 
+    <FlyoutItem Title="Home">
+        <ShellContent
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Title="Home"/>
+    </FlyoutItem>
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+        Title="View Data"
+        ContentTemplate="{DataTemplate local:ViewData}"
+        Route="ViewData" />
+    <ShellContent
+        Title="Create Student"
+        ContentTemplate="{DataTemplate local:CreateData}"
+        Route="CreateData" />
+    <ShellContent
+        Title="Create Submission"
+        ContentTemplate="{DataTemplate local:CreateSubmission}"
+        Route="CreateSubmission" />
+    <ShellContent
+        Title="Create Assignment"
+        ContentTemplate="{DataTemplate local:CreateAssignment}"
+        Route="CreateAssignment" />
+    <ShellContent
+        Title="Edit Assignment"
+        ContentTemplate="{DataTemplate local:EditAssignment}"
+        Route="EditAssignment" />
+    <ShellContent
+        Title="Edit Submission"
+        ContentTemplate="{DataTemplate local:EditSubmission}"
+        Route="EditSubmission" />
 </Shell>

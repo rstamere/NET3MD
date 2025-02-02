@@ -43,7 +43,8 @@ namespace NET1MDversion2
                     Directory.CreateDirectory(directoryPath);
                 }
 
-                XmlSerializer serializer = new XmlSerializer(typeof(SchoolInfo));
+                XmlSerializer serializer = new XmlSerializer(typeof(SchoolInfo)); //System.IO.FileNotFoundException: 'Could not load file or assembly 'NET1MDversion2.XmlSerializers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null, processorArchitecture=MSIL'. The system cannot find the file specified.'
+
                 using (TextWriter writer = new StreamWriter(filePath))
                 {
                     serializer.Serialize(writer, _schoolinfo);

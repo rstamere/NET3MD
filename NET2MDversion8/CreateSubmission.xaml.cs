@@ -66,6 +66,7 @@ public partial class CreateSubmission : ContentPage
                 _submission.Student = student;
                 _submission.SubmissionTime = submissionTime;
                 _submission.Score = score;
+                App.schoolMan.saveChanges(); //pievieno seit save metodi, kuru izveido schoolManager
                 await DisplayAlert("Success", "Submission updated successfully", "Ok");
                 await Navigation.PopModalAsync(); //edit submission page
             }

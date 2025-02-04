@@ -10,8 +10,8 @@ namespace NET1MDversion2
     public interface IDataManager
     {
         string print(); //samainiju uz string prieks 2md
-        void save(string filePath = @"C:\Temp\schooldata.xml");
-        void load(string filePath = @"C:\Temp\schooldata.xml");
+        //void save(string filePath = @"C:\Temp\schooldata.xml");
+        //void load(string filePath = @"C:\Temp\schooldata.xml");
         void createTestData();
         void reset();
     }

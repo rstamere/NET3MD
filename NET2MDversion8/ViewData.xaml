@@ -23,16 +23,6 @@
                 Clicked="OnCreateClicked"
                 HorizontalOptions="Fill" />
             <Button
-                x:Name="LoadBtn"
-                Text="Load Data"
-                Clicked="OnLoadClicked"
-                HorizontalOptions="Fill" />
-            <Button
-                x:Name="SaveBtn"
-                Text="Save Data"
-                Clicked="OnSaveClicked"
-                HorizontalOptions="Fill" />
-            <Button
                 x:Name="RestartBtn"
                 Text="Restart Data"
                 Clicked="OnRestartClicked"

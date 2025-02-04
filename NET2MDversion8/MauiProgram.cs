@@ -16,10 +16,9 @@ namespace NET2MDversion8
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
             try
-            { 
+            { // nokopeju visu so no lekciju slaida
                 var config = new ConfigurationBuilder()
-                    .SetBasePath(AppContext.BaseDirectory) //in the words of chat gpt:
-                                                            //"this makes sure appsettings.json is looked for inside the running directory" (???)
+                    .SetBasePath(AppContext.BaseDirectory) //in the words of chat gpt: "this makes sure appsettings.json is looked for inside the running directory" (???)
                     .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .Build();
                 builder.Configuration.AddConfiguration(config);

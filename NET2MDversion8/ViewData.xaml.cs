@@ -21,66 +21,66 @@ public partial class ViewData : ContentPage
     {
         App.schoolMan.createTestData(); //izmantojam schoolManager metodi, lai izveidotu testa datus
     }
-    private async void OnSaveClicked(object sender, EventArgs e) //uzgenerets ar AI riku
-    {
-        try
-        {
-            App.schoolMan.save(@"C:\Temp\schooldata.xml");
+    //private async void OnSaveClicked(object sender, EventArgs e) //uzgenerets ar AI riku
+    //{
+    //    try
+    //    {
+    //        App.schoolMan.save(@"C:\Temp\schooldata.xml");
 
-            // Verify the file exists and contains data
-            string filePath = @"C:\Temp\schooldata.xml";
-            if (File.Exists(filePath))
-            {
-                string fileContent = File.ReadAllText(filePath);
-                if (!string.IsNullOrEmpty(fileContent))
-                {
-                    await DisplayAlert("Success", "Data saved successfully and file verified. Please check your Temp folder.", "Ok");
-                }
-                else
-                {
-                    await DisplayAlert("Warning", "Data saved but the file appears to be empty. Please check your Temp folder.", "Ok");
-                }
-            }
-            else
-            {
-                await DisplayAlert("Error", "File not found after save attempt. Please check your Temp folder.", "Ok");
-            }
-        }
-        catch (Exception ex)
-        {
-            await DisplayAlert("Error", $"Error saving data: {ex.Message}", "Ok");
-        }
-    }
-    private async void OnLoadClicked(object sender, EventArgs e) //uzgenerets ar AI riku
-    {
-        try
-        {
-            string filePath = @"C:\Temp\schooldata.xml";
-            App.schoolMan.load(filePath);
+    //        // Verify the file exists and contains data
+    //        string filePath = @"C:\Temp\schooldata.xml";
+    //        if (File.Exists(filePath))
+    //        {
+    //            string fileContent = File.ReadAllText(filePath);
+    //            if (!string.IsNullOrEmpty(fileContent))
+    //            {
+    //                await DisplayAlert("Success", "Data saved successfully and file verified. Please check your Temp folder.", "Ok");
+    //            }
+    //            else
+    //            {
+    //                await DisplayAlert("Warning", "Data saved but the file appears to be empty. Please check your Temp folder.", "Ok");
+    //            }
+    //        }
+    //        else
+    //        {
+    //            await DisplayAlert("Error", "File not found after save attempt. Please check your Temp folder.", "Ok");
+    //        }
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        await DisplayAlert("Error", $"Error saving data: {ex.Message}", "Ok");
+    //    }
+    //}
+    //private async void OnLoadClicked(object sender, EventArgs e) //uzgenerets ar AI riku
+    //{
+    //    try
+    //    {
+    //        string filePath = @"C:\Temp\schooldata.xml";
+    //        App.schoolMan.load(filePath);
 
-            // Verify the file exists and contains data
-            if (File.Exists(filePath))
-            {
-                string fileContent = File.ReadAllText(filePath);
-                if (!string.IsNullOrEmpty(fileContent))
-                {
-                    await DisplayAlert("Success", $"Data loaded successfully from {filePath}", "Ok");
-                }
-                else
-                {
-                    await DisplayAlert("Warning", "File loaded but appears to be empty. Please check your Temp folder.", "Ok");
-                }
-            }
-            else
-            {
-                await DisplayAlert("Error", "File not found. Please check your Temp folder.", "Ok");
-            }
-        }
-        catch (Exception ex)
-        {
-            await DisplayAlert("Error", $"Error loading data: {ex.Message}", "Ok");
-        }
-    }
+    //        // Verify the file exists and contains data
+    //        if (File.Exists(filePath))
+    //        {
+    //            string fileContent = File.ReadAllText(filePath);
+    //            if (!string.IsNullOrEmpty(fileContent))
+    //            {
+    //                await DisplayAlert("Success", $"Data loaded successfully from {filePath}", "Ok");
+    //            }
+    //            else
+    //            {
+    //                await DisplayAlert("Warning", "File loaded but appears to be empty. Please check your Temp folder.", "Ok");
+    //            }
+    //        }
+    //        else
+    //        {
+    //            await DisplayAlert("Error", "File not found. Please check your Temp folder.", "Ok");
+    //        }
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        await DisplayAlert("Error", $"Error loading data: {ex.Message}", "Ok");
+    //    }
+    //}
 
     private void OnRestartClicked(object sender, EventArgs e)
     {
@@ -91,4 +91,5 @@ public partial class ViewData : ContentPage
     {
         App.schoolMan.print();
     }
+
 }

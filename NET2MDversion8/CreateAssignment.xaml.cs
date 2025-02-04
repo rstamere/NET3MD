@@ -52,6 +52,7 @@ public partial class CreateAssignment : ContentPage
                 _assignment.Description = description;
                 _assignment.Deadline = deadline;
                 _assignment.Course = course;
+                App.schoolMan.saveChanges(); //pievieno seit save metodi, kuru izveido schoolManager
                 await DisplayAlert("Success", "Assignment edited successfully", "Ok");
                 await Navigation.PopModalAsync(); //go to edit assignment
             }

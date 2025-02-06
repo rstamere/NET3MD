@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace NET1MDversion2
 {
@@ -34,81 +35,128 @@ namespace NET1MDversion2
             get { return _schoolinfo; }
         }
 
+
+        //public string printAllStudentsDB()
+        //{
+        //    string text = "Students: \n";
+        //    try
+        //    {
+        //        if (_schoolContext.Students.Any())
+        //        {
+        //            foreach (var student in _schoolContext.Students)
+        //            {
+        //                text += student.ToString() + Environment.NewLine;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            text = "No students found in the database.";
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        text = "An error occurred while fetching students: " + ex.Message;
+        //    }
+        //    return text;
+        //}
+
+        //public string printAllTeachersDB()
+        //{
+        //    string text = "Teachers: \n";
+        //    try
+        //    {
+        //        if (_schoolContext.Teachers.Any())
+        //        {
+        //            foreach (var teacher in _schoolContext.Teachers)
+        //            {
+        //                text += teacher.ToString() + Environment.NewLine;
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        text = "An error occurred while fetching teachers: " + ex.Message;
+        //    }
+        //    return text;
+        //}
+
+        //public string printAllCoursesDB()
+        //{
+        //    string text = "Courses: \n";
+        //    try
+        //    {
+        //        if (_schoolContext.Courses.Any())
+        //        {
+        //            foreach (var course in _schoolContext.Courses)
+        //            {
+        //                text += course.ToString() + Environment.NewLine;
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        text = "An error occurred while fetching courses: " + ex.Message;
+        //    }
+        //    return text;
+        //}
+
+        //public string printAllAssignmentsDB()
+        //{
+        //    string text = "Assignments: \n";
+        //    try
+        //    {
+        //        if (_schoolContext.Assignments.Any())
+        //        {
+        //            foreach (var assignment in _schoolContext.Assignments)
+        //            {
+        //                text += assignment.ToString() + Environment.NewLine;
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        text = "An error occurred while fetching assignments: " + ex.Message;
+        //    }
+        //    return text;
+        //}
+
+        //public string printAllSubmissionsDB()
+        //{
+        //    string text = "Submissions: \n";
+        //    try
+        //    {
+        //        if (_schoolContext.Submissions.Any())
+        //        {
+        //            foreach (var submission in _schoolContext.Submissions)
+        //            {
+        //                text += submission.ToString() + Environment.NewLine;
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        text = "An error occurred while fetching submissions: " + ex.Message;
+        //    }
+        //    return text;
+        //}
         public string print() //mazliet izmainiju (VS automatiski piedavaja)
         {
+            //string text = printAllStudentsDB();
+            //string text = _schoolContext.printAllStudentsDB();
+            //text += printAllTeachersDB();
+            //text += printAllCoursesDB();
+            //text += printAllAssignmentsDB();
+            //text += printAllSubmissionsDB();
+            //return text;
+
             string result = _schoolinfo.printAllStudents();
             result += _schoolinfo.printAllTeachers();
-            result += $"Courses: {_schoolinfo.countAllCourses()}\n";
+            //result += $"Courses: {_schoolinfo.countAllCourses()}\n";
             result += _schoolinfo.printAllAssignments();
             result += _schoolinfo.printAllSubmissions();
             return result;
         }
 
-        //public async void save(string filePath = @"C:\Temp\schooldata.xml") //draugs ieteica izmantot xml
-        //{
-        //    try
-        //    {
-        //        string directoryPath = Path.GetDirectoryName(filePath);
-        //        if (!Directory.Exists(directoryPath))
-        //        {
-        //            Directory.CreateDirectory(directoryPath);
-        //        }
-
-        //        XmlSerializer serializer = new XmlSerializer(typeof(SchoolInfo)); //System.IO.FileNotFoundException: 'Could not load file or assembly 'NET1MDversion2.XmlSerializers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null, processorArchitecture=MSIL'. The system cannot find the file specified.'
-
-        //        using (TextWriter writer = new StreamWriter(filePath))
-        //        {
-        //            serializer.Serialize(writer, _schoolinfo);
-        //        }
-
-        //        Console.WriteLine($"Data saved successfully to {filePath}");
-
-        //        // Verify the file exists and contains data - man bija problemas, tapec ir tik daudz mazliet bezjedzigu kludu parbauzu (visas parbaudes tika uzgeneretas ar AI riku)
-        //        if (File.Exists(filePath))
-        //        {
-        //            string fileContent = File.ReadAllText(filePath);
-        //            if (!string.IsNullOrEmpty(fileContent))
-        //            {
-        //                Console.WriteLine("Data saved successfully and file verified.");
-        //            }
-        //            else
-        //            {
-        //                Console.WriteLine("Data saved but file appears to be empty.");
-        //            }
-        //        }
-        //        else
-        //        {
-        //            Console.WriteLine("File not found after save attempt.");
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine($"Error saving data: {ex.Message}");
-        //    }
-        //}
-        //public void load(string filePath = @"C:\Temp\schooldata.xml")
-        //{
-        //    try
-        //    {
-        //        if (File.Exists(filePath))
-        //        {
-        //            XmlSerializer serializer = new XmlSerializer(typeof(SchoolInfo));
-        //            using (TextReader reader = new StreamReader(filePath))
-        //            {
-        //                _schoolinfo = (SchoolInfo)serializer.Deserialize(reader);
-        //            }
-        //            Console.WriteLine($"Data loaded successfully from {filePath}");
-        //        }
-        //        else
-        //        {
-        //            Console.WriteLine("File not found.");
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine($"Error loading data: {ex.Message}");
-        //    }
-        //}
         public void createTestData() //sis kods tika uzgenerets izmantojot AI riku
         {
             if (_schoolinfo == null) //initialize schoolinfo if it is null
@@ -175,7 +223,7 @@ namespace NET1MDversion2
         public void addStudent(string name, string surname, Person.GenderType gender, string studentIDNumber) //jauna metode, kas lauj lietotajam pievienot jaunu studentu schoolInfo
         {
             _schoolinfo.Students.Add(new Student(name, surname, gender, studentIDNumber));
-            _schoolContext.Students.Add(new Student(name, surname, gender, studentIDNumber)); //OLIVER, vai šis ir redundant?
+            //_schoolContext.Students.Add(new Student(name, surname, gender, studentIDNumber));
             _schoolContext.SaveChanges(); //saglabā izmaiņas db
         }
 
@@ -194,38 +242,11 @@ namespace NET1MDversion2
             _schoolContext.SaveChanges(); //saglabā izmaiņas db
         }
 
-        //public void editAssignment(Assignment assignment, DateTime deadline, Course course, string description) //jauna metode, kas lauj lietotajam rediget Assignment schoolInfo
-        //{
-        //    assignment.Deadline = deadline;
-        //    assignment.Course = course;
-        //    assignment.Description = description;
-        //    _schoolContext.SaveChanges(); //saglabā izmaiņas db
-        //}
         // Kāpēc šo vajag you may ask?
-        // man nav editSubmission un editAssignment šeit, tāpēc būs vnk jāuztaisa metode save un jāreferenco tajās lapās, kur notiek edit
-        public void saveChanges() //jauna metode, kas lauj lietotajam saglabat izmainas db
+        // man nav editSubmission un editAssignment šeit, tāpēc būs vnk jāuztaisa metode save un jareferenco tajās lapās, kur notiek edit
+        public void saveChanges() //jauna metode, kas lauj saglabat izmainas db
         {
             _schoolContext.SaveChanges();
         }
-
-        //private async void OnSaveClicked(object sender, EventArgs e)
-        //{
-        //    try
-        //    { //save changes to db
-        //        await SaveChangesAsync();
-        //        await DisplayAlert("Success", "Changes have been saved!", "Ok");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        await DisplayAlert("Error", $"Error saving changes: {ex.Message}", "Ok");
-        //    }
-        //}
-        //private async Task SaveChangesAsync()
-        //{ //implementation logic to save changes to db
-        //    using (var context = new SchoolContext())
-        //    {
-        //        await context.SaveChangesAsync();
-        //    }
-        //}
     }
 }

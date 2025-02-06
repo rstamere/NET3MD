@@ -88,13 +88,6 @@ namespace NET1MDversion2
             return schoolInfo;
         }
 
-        //metodes, kas skaita īpašības, jo kāpēc ne?
-        public int countAllTeachers() { return Teachers.Count; }
-        public int countAllStudents() { return Students.Count; }
-        public int countAllCourses() { return Courses.Count; }
-        public int countAllAssignments() { return Assignments.Count; }
-        public int countAllSubmissions() { return Submissions.Count; }
-
         public string printAllStudents() //parveidoju metodes, lai taas atgrieztu string un neprintetu konsolee (VS so visu automatiski piedavaja)
         {
             string result = "Students: \n";

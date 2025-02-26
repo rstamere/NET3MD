@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using static System.Formats.Asn1.AsnWriter;
+using static System.Net.Mime.MediaTypeNames;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace NET1MDversion2
@@ -28,11 +30,12 @@ namespace NET1MDversion2
         public schoolManager(SchoolInfo schoolinfo) //konstruktors, kas inicialize schoolinfo
         {
             _schoolinfo = new SchoolInfo();
+            _schoolContext = new SchoolContext(); //please work stop ruining my database
         }
 
         public SchoolInfo SchoolInfo
         {
-            get { return _schoolinfo; }
+            get { return _schoolinfo; } 
         }
 
 
@@ -141,7 +144,62 @@ namespace NET1MDversion2
         //}
         public string print() //mazliet izmainiju (VS automatiski piedavaja)
         {
-            //string text = printAllStudentsDB();
+            string text = "";
+
+            try
+            {
+                if (_schoolContext.Students.Any())
+                {
+                    text += "Students:\n";
+                    foreach (var student in _schoolContext.Students)
+                    {
+                        text += student.ToString() + Environment.NewLine;
+                    }
+                }
+
+                if (_schoolContext.Teachers.Any())
+                {
+                    text += "Teachers:\n";
+                    foreach (var teacher in _schoolContext.Teachers)
+                    {
+                        text += teacher.ToString() + Environment.NewLine;
+                    }
+                }
+
+                if (_schoolContext.Courses.Any())
+                {
+                    text += "Courses:\n";
+                    foreach (var course in _schoolContext.Courses)
+                    {
+                        text += course.ToString() + Environment.NewLine;
+                    }
+                }
+
+                if (_schoolContext.Assignments.Any())
+                {
+                    text += "Assignments:\n";
+                    foreach (var assignment in _schoolContext.Assignments)
+                    {
+                        text += assignment.ToString() + Environment.NewLine;
+                    }
+                }
+
+                if (_schoolContext.Submissions.Any())
+                {
+                    text += "Submissions:\n";
+                    foreach (var submission in _schoolContext.Submissions)
+                    {
+                        text += submission.ToString() + Environment.NewLine;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                text = "An error occurred while fetching data: " + ex.Message;
+            }
+
+            return text;
+
             //string text = _schoolContext.printAllStudentsDB();
             //text += printAllTeachersDB();
             //text += printAllCoursesDB();
@@ -149,12 +207,27 @@ namespace NET1MDversion2
             //text += printAllSubmissionsDB();
             //return text;
 
-            string result = _schoolinfo.printAllStudents();
-            result += _schoolinfo.printAllTeachers();
-            //result += $"Courses: {_schoolinfo.countAllCourses()}\n";
-            result += _schoolinfo.printAllAssignments();
-            result += _schoolinfo.printAllSubmissions();
-            return result;
+            //string result = _schoolinfo.printAllStudents();
+            //result += "Teachers:\n";
+            //foreach (var teacher in _schoolContext.Teachers.ToList())
+            //{
+            //    result += teacher.ToString() + "\n";
+            //}
+            //result += "Courses:\n";
+            //foreach (var course in _schoolContext.Courses.ToList())
+            //{
+            //    var teacher = _schoolContext.Teachers.FirstOrDefault(t => t.ID == course.TeacherId);
+            //    result += $"Course Name: {course.Name}, Teacher: {teacher.ToString()}\n";
+            //}
+            ////result += _schoolinfo.printAllTeachers();
+            ////result += $"Courses: {_schoolinfo.countAllCourses()}\n";
+            //result += _schoolinfo.printAllAssignments();
+            //result += _schoolinfo.printAllSubmissions();
+            ////foreach (var submission in _schoolContext.Submissions.ToList())
+            ////{
+            ////    result += submission.ToString() + "\n";
+            ////}
+            //return result;
         }
 
         public void createTestData() //sis kods tika uzgenerets izmantojot AI riku
@@ -223,7 +296,7 @@ namespace NET1MDversion2
         public void addStudent(string name, string surname, Person.GenderType gender, string studentIDNumber) //jauna metode, kas lauj lietotajam pievienot jaunu studentu schoolInfo
         {
             _schoolinfo.Students.Add(new Student(name, surname, gender, studentIDNumber));
-            //_schoolContext.Students.Add(new Student(name, surname, gender, studentIDNumber));
+            _schoolContext.Students.Add(new Student(name, surname, gender, studentIDNumber)); //idek
             _schoolContext.SaveChanges(); //saglabā izmaiņas db
         }
 
@@ -234,11 +307,13 @@ namespace NET1MDversion2
         public void addAssignment(DateTime deadline, Course course, string description) //jauna metode, kas lauj lietotajam pievienot jaunu Assignment schoolInfo
         {
             _schoolinfo.Assignments.Add(new Assignment(deadline, course, description));
+            _schoolContext.Assignments.Add(new Assignment(deadline, course, description));
             _schoolContext.SaveChanges(); //saglabā izmaiņas db
         }
         public void addSubmission(Assignment assignment, Student student, DateTime submissionDate, int score) //jauna metode, kas lauj lietotajam pievienot jaunu Submission schoolInfo
         {
             _schoolinfo.Submissions.Add(new Submission(assignment, student, submissionDate, score));
+            _schoolContext.Submissions.Add(new Submission(assignment, student, submissionDate, score));
             _schoolContext.SaveChanges(); //saglabā izmaiņas db
         }
 

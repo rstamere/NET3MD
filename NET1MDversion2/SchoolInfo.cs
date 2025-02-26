@@ -14,11 +14,7 @@ namespace NET1MDversion2
     public class SchoolInfo //nomainīju īpašības uz public, lai tas būtu redzams schoolManager
     {
         public ObservableCollection<Student> Students { get; set; } //VS visu šo automātiski piedāvāja
-        [XmlArray("Teachers")]
-        [XmlArrayItem("Teacher")]
         public ObservableCollection<Teacher> Teachers { get; set; }
-        [XmlArray("Courses")]
-        [XmlArrayItem("Course")]
         public ObservableCollection<Course> Courses { get; set; }
         public ObservableCollection<Assignment> Assignments { get; set; }
         public ObservableCollection<Submission> Submissions { get; set; }

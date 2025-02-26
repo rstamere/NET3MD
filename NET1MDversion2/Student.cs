@@ -9,7 +9,7 @@ namespace NET1MDversion2
     //3 UZD 
     public class Student : Person // izmantoju https://www.w3schools.com/cs/cs_constructors.php
     {
-        public string StudentIdNumber { get; set; }
+        public string? StudentIdNumber { get; set; }
 
         public Student() { } //xml by beloved please work
 
@@ -20,7 +20,9 @@ namespace NET1MDversion2
             Gender = gender;
             StudentIdNumber = StudentIDNumber;
         }
-        public override string ToString() => $"{base.ToString()}, Student ID: {StudentIdNumber}\n";
-
+        public override string ToString()
+        {
+            return $"Student: {base.ToString()}, Student ID: {StudentIdNumber}\n";
+        }
     }
 }

@@ -18,13 +18,9 @@ namespace NET1MDversion2
         public int ID { get; set; }
         public enum GenderType //izmantoju https://stackoverflow.com/questions/37585134/how-to-name-a-gender-property-of-type-gender-in-c-sharp-according-to-naming-conv
         {
-            [XmlEnum("Man")]
             Man,
-            [XmlEnum("Woman")]
             Woman,
-            [XmlEnum("Other")]
             Other,
-            [XmlEnum("Unknown")] //nezinu, vai sim ir kada jega, bet bija problemas ar xml
             Unknown
         }
         private GenderType _gender;

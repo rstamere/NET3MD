@@ -14,6 +14,12 @@ namespace NET2MDversion8
 
             MainPage = new AppShell();
             SchoolInfo schoolInfo = new SchoolInfo();
+
+            //using (var context = new SchoolContext(configuration["ConnectionStrings:SchoolCon"]))
+            //{
+            //    context.Database.EnsureCreated();
+            //}
+
             schoolMan = new schoolManager(schoolInfo, configuration["ConnectionStrings:SchoolCon"]);
             //schoolMan.createTestData();
             Application.Current.BindingContext = schoolMan.SchoolInfo;

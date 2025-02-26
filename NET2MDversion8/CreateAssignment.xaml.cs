@@ -48,7 +48,7 @@ public partial class CreateAssignment : ContentPage
                 await Shell.Current.GoToAsync("//ViewData");
             }
             else //redigejam assignment
-            {
+            {   
                 _assignment.Description = description;
                 _assignment.Deadline = deadline;
                 _assignment.Course = course;

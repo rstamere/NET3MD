@@ -22,9 +22,12 @@ namespace NET1MDversion2
         }
 
         public DateTime Deadline { get; set; }
-        public Course Course { get; set; }
-        public string Description { get; set; }
-        public override string ToString() => $"Assignment deadline: {Deadline}, Course: {Course.ToString()}, Assignment description: {Description}\n";
+        public Course? Course { get; set; }
+        public string? Description { get; set; }
+        public override string ToString()
+        {
+            return $"Assignment deadline: {Deadline}, Course: {Course}, Assignment description: {Description}\n"; //nonemu ToString()
+        } 
 
     }
 }

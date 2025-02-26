@@ -16,14 +16,15 @@ namespace NET1MDversion2
         public Course() { } //parameterless constructor for serialization
         public Course(string name, Teacher teacher)  //konstruktors, jo bija error (VS piedāvājo šo, kā labojumu)
         {
-            Name = name;
-            Teacher = teacher;
+            this.Name = name;
+            this.Teacher = teacher;
         }
-
-        [XmlElement("Name")]
-        public string Name { get; set; }
-        [XmlElement("Teacher")]
-        public Teacher Teacher { get; set; }
-        public override string ToString() => $"Course Name: {Name}, Teacher: {Teacher.ToString()}\n";
+        public string? Name { get; set; }
+        public int? TeacherId { get; set; }
+        public Teacher? Teacher { get; set; }
+        public override string ToString()
+        {
+           return $"Course Name: {Name}, Teacher: {Teacher}\n"; //nonemu ToString() (please work my dear god)
+        } 
     }
 }

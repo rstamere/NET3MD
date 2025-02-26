@@ -18,9 +18,10 @@ namespace NET1MDversion2
             Gender = gender;
             ContractDate = contractDate;
         }
-
-        [XmlElement("ContractDate")]
         public DateTime ContractDate { get; set; }
-        public override string ToString() => $"{base.ToString()}, Date: {ContractDate.ToShortDateString()}\n"; //
+        public override string ToString()
+        {
+            return $"Teacher: {base.ToString()}, Date: {ContractDate}\n"; //nonemu ToString()
+        }
     }
 }
